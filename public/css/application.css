@@ -1,26 +1,62 @@
+.outer {
+	width: 700px;
+	margin: 50px auto;
+	height: auto;
+	border-radius: 35px;
+	background: black;
+}
 .container {
- 	margin: 20px auto;
- 	width: 700px;
- 	height: auto;
- 	padding: 0px 30px 40px 30px;
- 	border: 1px dotted black;
- 	background: url('http://i.imgur.com/gKAmLqo.jpg');
- 	background-repeat: repeat;
- 	text-align: center;
- }
- 
- .container ul{
- 	list-style-type: none;
- 	line-height: 2;
- 	padding:0;
- 	margin: 0 auto;
- }
- 
- .card {
- 	width: 32%;
- 	margin: 10px auto;
- 	padding: 30px;
- 	height: auto;
- 	background: white;
- 	border: inset 3px;
- }
+	margin: 50px auto;
+	width: 700px;
+	height: auto;
+	padding-bottom: 30px;
+	background:#e7d8ca;
+	text-align: center;
+	color: #31322f;
+	border-radius: 35px;
+}
+
+nav{
+	width: 700px;
+	background: #40373b;
+	font-family: sans-serif;
+	border-top-left-radius: 35px
+}
+
+nav ul{
+	text-align: right;
+	list-style-type: none;
+	padding-right: 10px;
+	margin: 1px;
+}
+
+nav ul li{
+	display: inline;
+	margin: 0;
+	padding: 10px;
+}
+
+nav a, a:visited{
+	text-decoration: none;
+	color: blue;
+}
+
+nav a:hover{
+	text-decoration: none;
+	color: #c18f5d;
+}
+
+.container ul{
+	list-style-type: none;
+	line-height: 2;
+	padding:0;
+}
+
+.card {
+	width: 32%;
+	margin: 10px auto;
+	padding: 30px;
+	height: auto;
+	background: white;
+	border: inset 3px;
+}

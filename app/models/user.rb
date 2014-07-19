@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
 
   has_many :games
   has_many :guesses, through: :games
-  has_many :decks, through: :games
 
   def self.authenticate(args)
     user = User.find_by_email(args[:email])

@@ -3,14 +3,30 @@
  	<form name = "logout" action="/logout"  method="get">
  		<input type = "submit" value ="Logout">
  	</form>
- 	<% if @all_decks && @all_decks[0] %>
-	 	<% @all_decks.each do |deck| %>
+ 	<% if @all_games %>
+ 	  <ol> 	
+	 	<% @all_games.each do |game| %>
 	 		<article class="deck_list">
-	 			<h3><a href="#"><%= deck.title %></a></h3>
+	 			<li><h3><%= game.deck.title %> (<%= game.deck.cards.count %> cards)</h3>
+					<p>Progress: <%= game.progress %> (<%= game.num_right %> correct)
+					<form name = "play" action="/play/<%= game.id %>"  method="get">
+ 						<input type = "submit" value ="Play">
+ 					</form>
+ 					<form name = "delete" action="/#"  method="get">
+ 						<input type = "submit" value ="Delete">
+ 					</form>
+					</p>
+				
+	 			</li>
 	 		</article>
-	 	<span class="progress"><%= deck.count %> / <%= deck.size %> (<%= deck.num_right %> correct)</span>
 	 	<% end %>
+	  </ol>
  	<% else %>
- 		<p>You don't have any deck yet</p>
+ 		<p>Sorry you have not created any game yet.</p>
  	<% end %>
+
+	<form name = "games" action="/new"  method="get">
+ 		<input type = "submit" value ="Create a new game">
+ 	</form>
+
  </div>

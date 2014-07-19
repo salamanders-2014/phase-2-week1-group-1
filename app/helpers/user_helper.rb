@@ -2,9 +2,15 @@ helpers do
   def current_user
     id = session[:curr]
     if id
-      @curr_user = User.find(id)
+      begin
+        @curr_user = User.find(id)
+        return @curr_user
+      rescue 
+        session[:curr] = nil
+        return nil
+      end
     else
-      nil
+      return nil
     end
   end
 end

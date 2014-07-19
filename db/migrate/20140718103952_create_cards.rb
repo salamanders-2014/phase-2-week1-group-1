@@ -4,7 +4,6 @@ class CreateCards < ActiveRecord::Migration
       t.string :question
       t.string :answer
       t.belongs_to :deck
-      t.boolean :correct?
       t.timestamps
     end
   end
