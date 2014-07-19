@@ -11,6 +11,21 @@
   <title>Quizly</title>
 </head>
 <body>
+	<div class-"outer">
+	<div class="container">
+  		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<% if @curr_user != nil %>
+					<li><a href="/logged_in"><%= @curr_user.name.capitalize %></a></li>
+					<li><a href="/logout">Log out</a></li>
+				<% else %>
+					<li><a href="/register">Register</a></li>
+				<% end %>
+			</ul>
+		</nav>
+
   <%= yield %>
+	</div>
 </body>
 </html>
