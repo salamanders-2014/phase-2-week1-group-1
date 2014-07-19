@@ -1,0 +1,15 @@
+
+	<h1>Welcome, @curr_user.name</h1>
+	<% @curr_user.decks.each do |deck| %>
+		<article class="deck_list">
+			<h3><a href="/card/<%= @curr_user.id %>/<%= deck.id %>">deck.title</a></h3>
+			<p><small>deck.created_at</small></p>
+
+		</article>
+	<% end %>
+
+
+	<span class="progress">@deck.count</span>
+
+
+</div>
