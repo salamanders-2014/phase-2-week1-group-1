@@ -1,7 +1,9 @@
 html{
 	background: url("../16822_sky_clouds_above_clouds.jpg");
-	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center center;
 	background-size: cover;
+	background-repeat: no-repeat;
 
 }
 .outer {
@@ -24,9 +26,9 @@ html{
 }
 
 .container h1{
+	margin-bottom: 1px;
 	font-size: 3.5em;
 	font-family: 'Rancho';
-	margin-bottom: 1px;
 }
 
 nav{
@@ -92,23 +94,23 @@ nav a:hover{
 }
 
 input:not([type=submit]){
-	border-radius: 5px;
 	border: 1px solid  #f4ece4;
+	border-radius: 5px;
 	text-align: center;
 }
 
 input[type=submit],
 input[type=button]{
-	font-family: 'Rancho';
+	padding: 0 10px 0 10px;
+	border: 1px solid  #f4ece4;
+	border-radius: 5px;
 	background: #605757;
 
 	background: linear-gradient(top,  #605757,  #40373b);
   background: -webkit-gradient(linear, left top, left bottom, from(#605757), to(#40373b));
 	color: white;
 	font-size: 1.3em;
-	border-radius: 5px;
-	border: 1px solid  #f4ece4;
-	padding: 0 10px 0 10px;
+	font-family: 'Rancho';
 }
 
 input[type=submit]:hover,
