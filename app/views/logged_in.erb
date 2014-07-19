@@ -1,5 +1,5 @@
-<div class="container">
-	<h1>Welcome, @curr_user.name</h1>
+
+ 	<h1>Welcome, <%= @curr_user.name %></h1>
  	<% if @all_decks && @all_decks[0] %>
 	 	<% @all_decks.each do |deck| %>
 	 		<article class="deck_list">
@@ -10,9 +10,5 @@
  	<% else %>
  		<p>You don't have any deck yet</p>
  	<% end %>
-
-
-	<span class="progress">@deck.count</span>
-
 
 </div>

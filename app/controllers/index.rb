@@ -1,29 +1,21 @@
-get '/' do
-	erb :index
+
+# Index page ===========================================
+
+get '/'  do
+  if current_user
+    redirect to("/loggedin/#{@curr_user.id}")
+  else
+    erb :index
+  end
 end
 
 post '/' do
+  #user authentication
+  @curr_user = User.authenticate(params[:input])
+  if @curr_user == nil
+    flash[:error] = "Invalid email/password. Please try again!"
+  else
+    session[:curr] = @curr_user.id
+    redirect to("/loggedin/#{@curr_user.id}")
+  end
 end
-
-get '/register' do
-	erb :register
-end
-
-post '/register' do
-end
-
-get '/logged_in'	do
-	erb :logged_in
-end
-
-get '/card' do
-	erb :card
-end
-
-post '/card' do
-	@curr_card = Game.new
-end
-
-get '/results'do
-	erb :results
-	end
