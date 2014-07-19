@@ -46,6 +46,20 @@ nav a:hover{
 	color: #c18f5d;
 }
 
+.progress{
+	font-family: verdana;
+	padding: 10px;
+}
+
+.current_prog{
+	color: #c18f5d;
+	font-size: small;
+}
+
+.target_prog{
+	color: #605757;
+}
+
 .container ul{
 	list-style-type: none;
 	line-height: 2;

@@ -1,11 +1,3 @@
-class Deck
-	attr_accessor :count, :title
-	def initialize
-		@count = 0
-		@title = "bonbonbon"
-	end
-end
-
 get '/' do
 	erb :index
 end
@@ -15,6 +7,9 @@ end
 
 get '/register' do
 	erb :register
+end
+
+post '/register' do
 end
 
 get '/logged_in'	do
@@ -29,3 +24,6 @@ post '/card' do
 	@curr_card = Game.new
 end
 
+get '/results'do
+	erb :results
+	end

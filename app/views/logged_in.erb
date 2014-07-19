@@ -1,12 +1,15 @@
-
+<div class="container">
 	<h1>Welcome, @curr_user.name</h1>
-	<% @curr_user.decks.each do |deck| %>
-		<article class="deck_list">
-			<h3><a href="/card/<%= @curr_user.id %>/<%= deck.id %>">deck.title</a></h3>
-			<p><small>deck.created_at</small></p>
-
-		</article>
-	<% end %>
+ 	<% if @all_decks && @all_decks[0] %>
+	 	<% @all_decks.each do |deck| %>
+	 		<article class="deck_list">
+	 			<h3><a href="#"><%= deck.title %></a></h3>
+	 		</article>
+	 	<span class="progress"><%= deck.count %> / <%= deck.size %> (<%= deck.num_right %> correct)</span>
+	 	<% end %>
+ 	<% else %>
+ 		<p>You don't have any deck yet</p>
+ 	<% end %>
 
 
 	<span class="progress">@deck.count</span>

@@ -4,8 +4,9 @@
 	<div class = "card">
 		@curr_card.name
 	</div>
-	<form name="user_guess" method="post">
+	<form name="user_guess" action="/card" method="post">
 		<input type="string" name = "guess" placeholder = "Answer">
 		<input type="submit" value = "submit">
+		<input type="button" name = "skip" value = "skip">
 	</form>
 </div>
