@@ -4,6 +4,7 @@ class CreateGames < ActiveRecord::Migration
       t.belongs_to :deck
       t.belongs_to :user
       t.boolean :complete?
+      t.timestamps
     end
   end
 end

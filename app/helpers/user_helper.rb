@@ -1,5 +1,10 @@
 helpers do
   def current_user
-    @curr_user ||= User.find(session[curr])
+    id = session[:curr]
+    if id
+      @curr_user = User.find(id)
+    else
+      nil
+    end
   end
 end

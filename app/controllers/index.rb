@@ -2,7 +2,7 @@
 
 get '/'  do
   if current_user
-    erb :loggedin
+    redirect to("/loggedin/#{@curr_user.id}")
   else
     erb :index
   end

@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   def self.authenticate(args)
     user = User.find_by_email(args[:email])
-    return user if user && user.password_hash == args[:password]
+    return user if user && user.password == args[:password]
     nil
   end
 

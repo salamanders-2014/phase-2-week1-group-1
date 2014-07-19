@@ -24,6 +24,10 @@ class Deck < ActiveRecord::Base
   end
 
   def count
+    curr_card_index
+  end
+
+  def num_right
     self.cards.where(correct?: true).size
   end
 

@@ -4,6 +4,7 @@ class CreateGuesses < ActiveRecord::Migration
       t.belongs_to :game
       t.boolean :correct?
       t.belongs_to :card
+      t.timestamps
     end
   end
 end
