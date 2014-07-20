@@ -1,9 +1,34 @@
 <div class="container">
- 	<h1><%= @curr_game.deck.title %></h1>
- 	<h4>Progress: <%= @curr_game.num_right %> correct(s)  </h4>
- 	<h2>Question <%= @curr_game.progress + 1 %> / <%= @curr_game.num_cards %>: <%= @curr_card.question %></h2>
- 	<form name="user_guess" action="/guess/<%= @curr_game.id %>" method="post">
- 		<input type="string" name = "guess" placeholder = "Answer">
- 		<input type="submit" value = "submit">
- 	</form>
+	<% if @curr_card %>
+		<% right = ["YES!", "CORRECT!", "YOU GOT IT!", "GOOD JOB!", "THIS IS TOO EASY HUH?", "GREAT!", "YOU JUST GOT LUCKY BITCH!"]%>
+		<% wrong = ["OOPS!", "NOPE!", "TRY AGAIN BRO!", "ARE YOU SERIOUS?", "OH COME ON!", "YOU ARE JUST SO BAD!"]%>
+	 	<h1><%= @curr_game.deck.title %></h1>
+	 	<h4>Progress: <%= @curr_game.num_right %> correct(s)  </h4>
+	 	<% if @curr_game.guesses.last %>
+		 	<% if @curr_game.guesses.last.correct? %>
+		 		<h2><font color="blue"><b><%= right.sample %></b></font></small>
+		 	<% else %>
+				<h2><font color="red"><b><%= wrong.sample%></b></font></small>
+		 	<% end %>
+		<% end %>
+	 	<h2>Question <%= @curr_game.progress + 1 %> / <%= @curr_game.num_cards %>: <%= @curr_card.question %></h2>
+	 	<form name="user_guess" action="/guess/<%= @curr_game.id %>" method="post">
+	 		<input type="string" name = "guess" placeholder = "Answer">
+	 		<input type="submit" value = "submit">
+	 	</form>
+	 	<br/>
+	 	<br/>
+	 	<br/>
+	 	<br/>
+	 	<br/>
+	 	<h4><i>Don't feel like playing?</i></h4>
+	 	<form name="home" action="/" method="get">
+	 		<input type="submit" value = "Back to Homepage">
+	 	</form>
+	<% else %>
+		<h2>This deck is empty. Please add cards or choose another.</h2>
+		<form name="home" action="/" method="get">
+	 		<input type="submit" value = "Back to Homepage">
+	 	</form>
+	<% end %> 	
  </div>

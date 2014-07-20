@@ -1,14 +1,11 @@
 <div class="container">
  	<h1>Go ahead and choose a deck, <%= @curr_user.name %></h1>
- 	<form name = "logout" action="/logout"  method="get">
- 		<input type = "submit" value ="Logout">
- 	</form>
  	<% if @all_decks %>
 	 	<% @all_decks.each do |deck| %>
 	 		<article class="deck_list">
 	 			<h3><%= deck.title %> (<%= deck.cards.count %> cards)</h3>
 	 			<form name = "games" action="/new/<%= deck.id %>"  method="post">
-			 		<input type = "submit" value ="Create">
+			 		<input type = "submit" value ="Choose this deck">
 			 	</form>
 	 		</article>
 	 	<% end %>

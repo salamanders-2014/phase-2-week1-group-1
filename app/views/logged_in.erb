@@ -1,21 +1,20 @@
 <div class="container">
  	<h1>Welcome, <%= @curr_user.name %></h1>
- 	<form name = "logout" action="/logout"  method="get">
- 		<input type = "submit" value ="Logout">
- 	</form>
+ 	<p>=======================================================</p>
  	<% if @all_games %>
  	  <ol> 	
 	 	<% @all_games.each do |game| %>
 	 		<article class="deck_list">
 	 			<li><h3><%= game.deck.title %> (<%= game.deck.cards.count %> cards)</h3>
-					<p>Progress: <%= game.progress %> (<%= game.num_right %> correct)
-					<form name = "play" action="/play/<%= game.id %>"  method="get">
- 						<input type = "submit" value ="Play">
- 					</form>
- 					<form name = "delete" action="/#"  method="get">
- 						<input type = "submit" value ="Delete">
+					<p>Answered: <%= game.progress %> --- Corrects: <%= game.num_right %><br/>
+						<% game.guesses[-1]? lt = game.guesses.last.updated_at : lt = "not started"%>
+						<% game.guesses[-1]? st = "Continue" : st = "Start"%>
+					<small> Last played: <%= lt %> </small>	
+					<form class="bu" name = "play" action="/play/<%= game.id %>"  method="get">
+ 						<input type = "submit" value ="<%= st %>">
  					</form>
 					</p>
+					<p>-----------------------------------------------------------------------------</p>
 				
 	 			</li>
 	 		</article>
@@ -24,9 +23,12 @@
  	<% else %>
  		<p>Sorry you have not created any game yet.</p>
  	<% end %>
-
+	<br/>
+	<br/>
+	
 	<form name = "games" action="/new"  method="get">
  		<input type = "submit" value ="Create a new game">
  	</form>
+
 
  </div>
